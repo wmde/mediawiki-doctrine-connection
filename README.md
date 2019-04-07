@@ -1,8 +1,8 @@
-# PHP Library Template
+# MediaWiki Doctrine Connection
 
-[![Build Status](https://travis-ci.org/JeroenDeDauw/new-php-library.svg?branch=master)](https://travis-ci.org/JeroenDeDauw/new-php-library)
+[![Build Status](https://travis-ci.org/wmde/mediawiki-doctrine-connection.svg?branch=master)](https://travis-ci.org/wmde/mediawiki-doctrine-connection)
 
-This is a template for starting new PHP libraries. Copy or fork to get started quickly.
+Tiny library for creating a Doctrine DBAL Connection from a MediaWiki Database object.
 
 ## Usage
 
@@ -10,14 +10,14 @@ TODO
 
 ## Installation
 
-To use the UPDATE_NAME library in your project, simply add a dependency on UPDATE/NAME
+To use the MediaWiki Doctrine Connection library in your project, simply add a dependency on mediawiki/doctrine-connection
 to your project's `composer.json` file. Here is a minimal example of a `composer.json`
-file that just defines a dependency on UPDATE_NAME 1.x:
+file that just defines a dependency on MediaWiki Doctrine Connection 1.x:
 
 ```json
 {
     "require": {
-        "UPDATE/NAME": "~1.0"
+        "mediawiki/doctrine-connection": "~1.0"
     }
 }
 ```

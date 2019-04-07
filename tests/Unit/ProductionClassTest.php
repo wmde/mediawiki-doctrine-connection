@@ -2,13 +2,13 @@
 
 declare( strict_types = 1 );
 
-namespace Such\NewProject\Tests\Unit;
+namespace MediaWiki\DoctrineConnection\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Such\NewProject\ProductionClass;
+use MediaWiki\DoctrineConnection\ProductionClass;
 
 /**
- * @covers \Such\NewProject\ProductionClass
+ * @covers \MediaWiki\DoctrineConnection\ProductionClass
  */
 class ProductionClassTest extends TestCase {
 

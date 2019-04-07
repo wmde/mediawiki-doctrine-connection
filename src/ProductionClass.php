@@ -2,7 +2,7 @@
 
 declare( strict_types = 1 );
 
-namespace Such\NewProject;
+namespace MediaWiki\DoctrineConnection;
 
 class ProductionClass {
 
