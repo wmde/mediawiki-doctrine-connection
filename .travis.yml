@@ -1,25 +1,18 @@
 language: php
 
-php:
-  - '7.0'
-  - '7.1'
-  - '7.2'
-  - '7.3'
-
 sudo: false
 
-install:
-  - travis_retry composer install
+matrix:
+  include:
+    - env: DBTYPE=mysql; MW=master
+      php: '7.3'
+    - env: DBTYPE=sqlite; MW=1.31.0
+      php: '7.0'
+  fast_finish: true
 
-script:
-  - composer validate --no-interaction
-  - make ci
+install: bash .travis.install.sh
 
-after_success:
-  - if [[ "`phpenv version-name`" != "7.3" ]]; then exit 0; fi
-  - vendor/bin/phpunit --coverage-clover coverage.clover
-  - wget https://scrutinizer-ci.com/ocular.phar
-  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+script: ../phase3/tests/phpunit/phpunit.php -c ../phase3/vendor/mediawiki/doctrine-connection/phpunit.xml.dist
 
 cache:
   directories:
