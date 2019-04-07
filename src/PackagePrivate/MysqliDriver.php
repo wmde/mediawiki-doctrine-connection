@@ -1,10 +1,9 @@
 <?php
 
-namespace MediaWiki\DoctrineConnection;
+namespace MediaWiki\DoctrineConnection\PackagePrivate;
 
 use Doctrine\DBAL\Driver\AbstractMySQLDriver;
 use mysqli;
-use Wikibase\Lib\DriverConnection;
 
 class MysqliDriver extends AbstractMySQLDriver {
 

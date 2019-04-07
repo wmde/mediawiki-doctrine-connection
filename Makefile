@@ -1,15 +1,8 @@
 .PHONY: ci test phpunit cs stan covers
 
-DEFAULT_GOAL := ci
-
-ci: test cs
-
-test: covers phpunit
+DEFAULT_GOAL := cs
 
 cs: phpcs
-
-phpunit:
-	./vendor/bin/phpunit
 
 phpcs:
 	./vendor/bin/phpcs -p -s

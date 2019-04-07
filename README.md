@@ -28,18 +28,14 @@ Start by installing the project dependencies by executing
 
     composer update
 
-You can run the tests by executing
-
-    make test
-    
 You can run the style checks by executing
 
     make cs
     
-To run all CI checks, execute
+Since the library depends on MediaWiki, you need to have a working MediaWiki
+installation to run the tests. You need these two steps to run the tests:
 
-    make ci
-    
-You can also invoke PHPUnit directly to pass it arguments, as follows
+* Load `vendor/autoload.php` of this library in your MediaWiki's `LocalSettings.php` file
+* Execute `maintenance/phpunit.php -c /path/to/this/lib/phpunit.xml.dist`
 
-    vendor/bin/phpunit --filter SomeClassNameOrFilter
+For an example see the TravisCI setup (`.travis.yml` and `.travis.install.sh`)
