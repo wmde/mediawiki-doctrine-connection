@@ -4,9 +4,10 @@
 	"description": "Tiny library for creating a Doctrine DBAL Connection from a MediaWiki Database object",
 	"require": {
 		"php": "^7.0",
-		"doctrine/dbal": "~2.5.13"
+		"doctrine/dbal": "~2.5"
 	},
 	"require-dev": {
+		"doctrine/dbal": "~2.5.13",
 		"phpunit/phpunit": "^6.5.14",
 		"ockcyp/covers-validator": "~1.1",
 		"squizlabs/php_codesniffer": "~3.3",
