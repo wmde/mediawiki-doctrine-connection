@@ -4,6 +4,11 @@
 
 Tiny library for creating a Doctrine DBAL Connection from a MediaWiki Database object.
 
+Supported databases are:
+
+* Mysqli
+* SQLite (PDO)
+
 ## Usage
 
 Connections are constructed via the `DoctrineConnectionFactory`:
