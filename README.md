@@ -6,7 +6,13 @@ Tiny library for creating a Doctrine DBAL Connection from a MediaWiki Database o
 
 ## Usage
 
-TODO
+Connections are constructed via the `DoctrineConnectionFactory`:
+
+```php
+$factory = new DoctrineConnectionFactory();
+
+$doctrineConnection = $factory->connectionFromDatabase( $mwDatabase );
+```
 
 ## Installation
 
