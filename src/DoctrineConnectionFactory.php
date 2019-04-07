@@ -5,13 +5,13 @@ namespace MediaWiki\DoctrineConnection;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
 use MediaWiki\DoctrineConnection\PackagePrivate\MysqliDriver;
-use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\DatabaseMysqli;
 use Wikimedia\Rdbms\DatabaseSqlite;
+use Wikimedia\Rdbms\IDatabase;
 
 class DoctrineConnectionFactory {
 
-	public function connectionFromDatabase( Database $db ): Connection {
+	public function connectionFromDatabase( IDatabase $db ): Connection {
 		if ( $db instanceof DatabaseMysqli ) {
 			return $this->newMysqliBasedConnection( $db );
 		}
