@@ -3,7 +3,7 @@
 	"license": "BSD-3-Clause",
 	"description": "Tiny library for creating a Doctrine DBAL Connection from a MediaWiki Database object",
 	"require": {
-		"php": "^7.0",
+		"php": "^5.6.99|^7.0",
 		"doctrine/dbal": "~2.5"
 	},
 	"require-dev": {
