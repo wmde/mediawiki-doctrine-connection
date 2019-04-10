@@ -25,21 +25,17 @@ class DoctrineConnectionFactory {
 	}
 
 	private function newMysqliBasedConnection( DatabaseMysqli $db ): Connection {
-		$getConnection = Closure::bind(
-			function( $db ) {
-				return $db->conn;
-			},
-			null,
-			$db
-		);
-
 		return new Connection(
 			[],
-			new MysqliDriver( $getConnection( $db ) )
+			new MysqliDriver( $this->getWrappedConnection( $db ) )
 		);
 	}
 
 	private function newSqliteBasedConnection( DatabaseSqlite $db ): Connection {
+		return DriverManager::getConnection( [ 'pdo' => $this->getWrappedConnection( $db ) ] );
+	}
+
+	private function getWrappedConnection( $db ) {
 		$getConnection = Closure::bind(
 			function( $db ) {
 				return $db->conn;
@@ -48,7 +44,7 @@ class DoctrineConnectionFactory {
 			$db
 		);
 
-		return DriverManager::getConnection( [ 'pdo' => $getConnection( $db ) ] );
+		return $getConnection( $db );
 	}
 
 }
