@@ -2,6 +2,7 @@
 
 namespace MediaWiki\DoctrineConnection;
 
+use Closure;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
 use MediaWiki\DoctrineConnection\PackagePrivate\MysqliDriver;
@@ -24,20 +25,26 @@ class DoctrineConnectionFactory {
 	}
 
 	private function newMysqliBasedConnection( DatabaseMysqli $db ): Connection {
-		$reflectionProperty = new \ReflectionProperty( DatabaseMysqli::class, 'conn' );
-		$reflectionProperty->setAccessible( true );
-
 		return new Connection(
 			[],
-			new MysqliDriver( $reflectionProperty->getValue( $db ) )
+			new MysqliDriver( $this->getWrappedConnection( $db ) )
 		);
 	}
 
 	private function newSqliteBasedConnection( DatabaseSqlite $db ): Connection {
-		$reflectionProperty = new \ReflectionProperty( DatabaseSqlite::class, 'conn' );
-		$reflectionProperty->setAccessible( true );
+		return DriverManager::getConnection( [ 'pdo' => $this->getWrappedConnection( $db ) ] );
+	}
 
-		return DriverManager::getConnection( [ 'pdo' => $reflectionProperty->getValue( $db ) ] );
+	private function getWrappedConnection( $db ) {
+		$getConnection = Closure::bind(
+			function( $db ) {
+				return $db->conn;
+			},
+			null,
+			$db
+		);
+
+		return $getConnection( $db );
 	}
 
 }
