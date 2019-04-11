@@ -1,6 +1,8 @@
 # MediaWiki Doctrine Connection
 
 [![Build Status](https://travis-ci.org/wmde/mediawiki-doctrine-connection.svg?branch=master)](https://travis-ci.org/wmde/mediawiki-doctrine-connection)
+[![Latest Stable Version](https://poser.pugx.org/mediawiki/doctrine-connection/version.png)](https://packagist.org/packages/mediawiki/doctrine-connection)
+[![Download count](https://poser.pugx.org/mediawiki/doctrine-connection/d/total.png)](https://packagist.org/packages/mediawiki/doctrine-connection)
 
 Tiny library for creating a Doctrine DBAL Connection from a MediaWiki Database object.
 
