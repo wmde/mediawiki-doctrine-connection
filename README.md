@@ -1,3 +1,5 @@
+DISCONTINUED: This library was a proof of concept created in 2019, and has never been used in production code.
+
 # MediaWiki Doctrine Connection
 
 [![Build Status](https://travis-ci.org/wmde/mediawiki-doctrine-connection.svg?branch=master)](https://travis-ci.org/wmde/mediawiki-doctrine-connection)
